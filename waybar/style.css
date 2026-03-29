@@ -1,0 +1,222 @@
+/* =========================================
+   WAYBAR — Cosmic  ✦  Green Apple Edition
+   Tam yuvarlak panel versiyonu
+   ========================================= */
+
+@define-color bg         rgba(26, 27, 47, 0.88);
+@define-color bg-solid   #1A1B2F;
+@define-color fg         #C5C8C6;
+@define-color dim        #5C5F77;
+
+@define-color apple        #5DBB63;
+@define-color apple-bright #8de05d;
+@define-color apple-glow   rgba(93, 187, 99, 0.35);
+@define-color apple-soft   rgba(93, 187, 99, 0.12);
+@define-color apple-border rgba(93, 187, 99, 0.22);
+
+@define-color red          #F07178;
+@define-color red-glow     rgba(240, 113, 120, 0.38);
+@define-color dark         #1A1B2F;
+
+@define-color panel-bg     rgba(26, 28, 50, 0.82);
+@define-color panel-border rgba(93, 187, 99, 0.16);
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12.5px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @fg;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* ─────────────────────────────────────
+   ORTAK PANEL STİLİ — tam yuvarlak
+───────────────────────────────────── */
+#custom-arch,
+#workspaces,
+#clock.time,
+#clock.date,
+#pulseaudio,
+#tray,
+#custom-powermenu {
+    background: @panel-bg;
+    border: 1px solid @panel-border;
+    border-radius: 80px;
+    margin: 6px 3px;
+}
+
+/* ─────────────────────────────────────
+   ARCH BUTONU
+───────────────────────────────────── */
+#custom-arch {
+    font-size: 18px;
+    color: @apple;
+    padding: 0 15px;
+    margin-left: 8px;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-arch:hover {
+    color: @dark;
+    background: @apple;
+    border-color: @apple;
+    box-shadow: 0 0 16px @apple-glow;
+}
+
+/* ─────────────────────────────────────
+   WORKSPACES
+───────────────────────────────────── */
+#workspaces {
+    padding: 0 5px;
+}
+
+#workspaces button {
+    color: @dim;
+    background: transparent;
+    border-radius: 50px;
+    padding: 3px 3px;
+    margin: 3px 1px;
+    font-size: 12px;
+    transition: all 0.18s ease;
+    min-width: 28px;
+}
+
+#workspaces button:hover {
+    color: @fg;
+    background: @apple-soft;
+}
+
+#workspaces button.active {
+    color: @dark;
+    background: @apple;
+    font-weight: bold;
+    box-shadow: 0 0 10px @apple-glow;
+}
+
+#workspaces button.urgent {
+    color: @dark;
+    background: @red;
+    box-shadow: 0 0 10px @red-glow;
+}
+
+/* ─────────────────────────────────────
+   SAAT
+───────────────────────────────────── */
+#clock.time {
+    color: @fg;
+    padding: 0 18px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#clock.time:hover {
+    color: @apple-bright;
+    border-color: @apple-border;
+    box-shadow: 0 0 12px @apple-glow;
+}
+
+/* ─────────────────────────────────────
+   TARİH
+───────────────────────────────────── */
+#clock.date {
+    color: @dim;
+    padding: 0 18px;
+    letter-spacing: 0.03em;
+    transition: all 0.2s ease;
+}
+
+#clock.date:hover {
+    color: @fg;
+    border-color: @apple-border;
+    box-shadow: 0 0 12px @apple-glow;
+}
+
+/* ─────────────────────────────────────
+   TRAY
+───────────────────────────────────── */
+#tray {
+    padding: 0 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @red;
+    border-radius: 50px;
+}
+
+/* ─────────────────────────────────────
+   SES
+───────────────────────────────────── */
+#pulseaudio {
+    color: @fg;
+    padding: 0 16px;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pulseaudio:hover {
+    color: @apple-bright;
+    border-color: @apple-border;
+    box-shadow: 0 0 12px @apple-glow;
+}
+
+#pulseaudio.muted {
+    color: @dim;
+}
+
+#pulseaudio.muted:hover {
+    color: @red;
+    border-color: rgba(240, 113, 120, 0.30);
+    box-shadow: 0 0 10px @red-glow;
+}
+
+/* ─────────────────────────────────────
+   POWER BUTONU
+───────────────────────────────────── */
+#custom-powermenu {
+    font-size: 15px;
+    color: @dim;
+    padding: 0 15px;
+    margin-right: 8px;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-powermenu:hover {
+    color: @dark;
+    background: @red;
+    border-color: @red;
+    box-shadow: 0 0 16px @red-glow;
+}
+
+/* ─────────────────────────────────────
+   TOOLTIP
+───────────────────────────────────── */
+tooltip {
+    background: @bg-solid;
+    color: @fg;
+    border: 1px solid @apple-border;
+    border-radius: 16px;
+    padding: 8px 14px;
+    font-size: 12px;
+}
+
+tooltip label {
+    color: @fg;
+}
