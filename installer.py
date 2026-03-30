@@ -30,7 +30,7 @@ def header(msg):  print(f"\n{BOLD}{CYAN}{'─'*50}{RESET}\n{BOLD}  {msg}{RESET}\
 PACMAN_PACKAGES = [
     "hyprland",
     "hyprpaper",
-    "swww",
+    "awww",
     "waybar",
     "kitty",
     "rofi-wayland",
@@ -46,6 +46,7 @@ PACMAN_PACKAGES = [
     "brightnessctl",
     "udisks2",
     "xdg-desktop-portal-hyprland",
+    "nvim",
 ]
 
 # ── Repo ──────────────────────────────────────────────────────────────────────
